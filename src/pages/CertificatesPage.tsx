@@ -176,9 +176,7 @@ const CertificatesPage: React.FC = () => {
             </div>
           </div>
         ))}
-      </div>
-
-      <style jsx>{`
+      </div>      <style>{`
         .text-gradient {
           background: linear-gradient(90deg, var(--accent-color) 0%, var(--gradient-end) 100%);
           -webkit-background-clip: text;
