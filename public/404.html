@@ -16,16 +16,17 @@
     // paths handled by React Router
     // the real directory in which the app resides, for example:    // For GitHub Pages repository at https://bayramsn.github.io/Portfolyo-Sitem/
     // We need to keep "Portfolyo-Sitem" as part of our base path
-    var pathSegmentsToKeep = 1;
-
-    // Store the current URL in sessionStorage before redirecting
+    var pathSegmentsToKeep = 1;    // Store the current URL in sessionStorage before redirecting
     sessionStorage.redirect = window.location.href;
     
-    // Redirect to the root page of our GitHub Pages site
+    // Redirect to the root page of our GitHub Pages site with hash routing
     var l = window.location;
     l.replace(
       l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
-      l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/')
+      l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/') + 
+      '/#' + l.pathname.slice(1).split('/').slice(pathSegmentsToKeep).join('/') +
+      (l.search ? '?' + l.search.slice(1) : '') +
+      l.hash
     );
 
   </script>
