@@ -8,5 +8,13 @@ export default defineConfig({
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
+    // GitHub Pages özel yapılandırması
+    rollupOptions: {
+      output: {
+        manualChunks: undefined,
+      }
+    },
+    // 404.html dosyasını dist klasörüne kopyala
+    copyPublicDir: true,
   }
 })
