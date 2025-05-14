@@ -1,14 +1,14 @@
 import { HashRouter, Routes, Route, useLocation } from 'react-router-dom'
 import './App.css'
 import { Canvas } from '@react-three/fiber'
-import { Suspense, useEffect } from 'react'
+import { Suspense, useEffect, lazy } from 'react'
 
-// Pages
-import HomePage from './pages/HomePage'
-import AboutPage from './pages/AboutPage'
-import ProjectsPage from './pages/ProjectsPage'
-import CertificatesPage from './pages/CertificatesPage'
-import ContactPage from './pages/ContactPage'
+// Lazy loaded pages
+const HomePage = lazy(() => import('./pages/HomePage'))
+const AboutPage = lazy(() => import('./pages/AboutPage'))
+const ProjectsPage = lazy(() => import('./pages/ProjectsPage'))
+const CertificatesPage = lazy(() => import('./pages/CertificatesPage'))
+const ContactPage = lazy(() => import('./pages/ContactPage'))
 
 // Components
 import Navbar from './components/ui/Navbar'
@@ -53,13 +53,15 @@ const AppContent = () => {
         <ThemeToggle theme={theme} toggleTheme={toggleTheme} />
         
         <main>
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="about" element={<AboutPage />} />
-            <Route path="projects" element={<ProjectsPage />} />
-            <Route path="certificates" element={<CertificatesPage />} />
-            <Route path="contact" element={<ContactPage />} />
-          </Routes>
+          <Suspense fallback={<LoadingSpinner />}>
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+              <Route path="about" element={<AboutPage />} />
+              <Route path="projects" element={<ProjectsPage />} />
+              <Route path="certificates" element={<CertificatesPage />} />
+              <Route path="contact" element={<ContactPage />} />
+            </Routes>
+          </Suspense>
         </main>
       </div>
     </div>
