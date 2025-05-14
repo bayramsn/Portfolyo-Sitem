@@ -49,10 +49,10 @@ const AppContent = () => {
         <main>
           <Routes>
             <Route path="/" element={<HomePage />} />
-            <Route path="/about" element={<AboutPage />} />
-            <Route path="/projects" element={<ProjectsPage />} />
-            <Route path="/certificates" element={<CertificatesPage />} />
-            <Route path="/contact" element={<ContactPage />} />
+            <Route path="about" element={<AboutPage />} />
+            <Route path="projects" element={<ProjectsPage />} />
+            <Route path="certificates" element={<CertificatesPage />} />
+            <Route path="contact" element={<ContactPage />} />
           </Routes>
         </main>
       </div>
