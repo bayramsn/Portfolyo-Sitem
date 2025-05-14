@@ -1,7 +1,7 @@
-import { HashRouter, Routes, Route } from 'react-router-dom'
+import { HashRouter, Routes, Route, useLocation } from 'react-router-dom'
 import './App.css'
 import { Canvas } from '@react-three/fiber'
-import { Suspense } from 'react'
+import { Suspense, useEffect } from 'react'
 
 // Pages
 import HomePage from './pages/HomePage'
@@ -28,6 +28,12 @@ const LoadingSpinner = () => (
 
 const AppContent = () => {
   const { theme, toggleTheme } = useTheme();
+  
+  // Log navigation for debugging
+  const location = useLocation();
+  useEffect(() => {
+    console.log('Current path:', location.pathname);
+  }, [location]);
 
   return (
     <div className="app-container">
