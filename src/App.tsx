@@ -1,4 +1,4 @@
-import { HashRouter as Router, Routes, Route } from 'react-router-dom'
+import { HashRouter, Routes, Route } from 'react-router-dom'
 import './App.css'
 import { Canvas } from '@react-three/fiber'
 import { Suspense } from 'react'
@@ -63,9 +63,9 @@ const AppContent = () => {
 function App() {
   return (
     <ThemeProvider>
-      <Router>
+      <HashRouter>
         <AppContent />
-      </Router>
+      </HashRouter>
     </ThemeProvider>
   );
 }
