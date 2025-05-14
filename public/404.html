@@ -20,12 +20,15 @@
     sessionStorage.redirect = window.location.href;
     
     // Redirect to the root page of our GitHub Pages site with hash routing
+    var segmentCount = 1; // For GitHub Project Pages
+    var rootPath = '/Portfolyo-Sitem/'; // Set this to your repository name
+    
     var l = window.location;
     l.replace(
       l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
-      l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/') + 
-      '/#' + l.pathname.slice(1).split('/').slice(pathSegmentsToKeep).join('/') +
-      (l.search ? '?' + l.search.slice(1) : '') +
+      rootPath + 
+      '#' + l.pathname.slice(rootPath.length) +
+      (l.search ? l.search : '') +
       l.hash
     );
 

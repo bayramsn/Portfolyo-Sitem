@@ -10,6 +10,7 @@ export default defineConfig({
     assetsDir: 'assets',
     emptyOutDir: true,
     sourcemap: false, // Disable sourcemaps in production to reduce size
+    assetsInlineLimit: 0, // Disables inlining assets
     chunkSizeWarningLimit: 600, // Uyarı limitini yükselt (varsayılan 500kB)
     rollupOptions: {
       output: {
