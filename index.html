@@ -2,14 +2,13 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" href="%BASE_URL%vite.svg" />
+    <link rel="icon" type="image/svg+xml" href="./vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Bayram Şenbay - Portfolyo</title>
-    <!-- SPA redirect for GitHub Pages -->
-    <script type="text/javascript">
-      (function() {
-        var redirect = sessionStorage.redirect;
+    <!-- GitHub Pages SPA yönlendirme scripti -->
+    <script>
+      (function(){
+        const redirect = sessionStorage.redirect;
         delete sessionStorage.redirect;
         if (redirect && redirect !== location.href) {
           history.replaceState(null, null, redirect);
@@ -19,6 +18,6 @@
   </head>
   <body>
     <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+    <script type="module" src="./src/main.tsx"></script>
   </body>
 </html>
