@@ -1,4 +1,4 @@
-import{r as A}from"./vendor-react-BVJO15EP.js";var ci={exports:{}},$e={};/**
+import{r as A}from"./vendor-react.BVJO15EP.js";var ci={exports:{}},$e={};/**
  * @license React
  * react-jsx-runtime.production.js
  *
