@@ -1,14 +1,30 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { FaLaptopCode, FaServer, FaDatabase } from 'react-icons/fa';
+import { profilePhotoBase64 } from '../assets/profilePhoto';
 
 const HomePage: React.FC = () => {
-  return (
-    <div className="container py-5">
+  return (    <div className="container py-5">
       {/* Hero Section */}      <section
         className="hero text-center text-light py-5 mb-5"
         style={{ background: 'linear-gradient(135deg, var(--primary-color), var(--accent-color))', borderRadius: '8px' }}
       >
+        <div className="d-flex justify-content-center mb-4">
+          <div 
+            className="rounded-circle overflow-hidden border-3 border-light shadow-lg"
+            style={{ width: '150px', height: '150px' }}
+          >
+            <img 
+              src={`data:image/png;base64,${profilePhotoBase64}`} 
+              alt="Bayram Şenbay" 
+              style={{
+                width: '100%',
+                height: '100%',
+                objectFit: 'cover'
+              }}
+            />
+          </div>
+        </div>
         <h1 className="display-4 fw-bold">Ölçeklenebilir Web Çözümleri</h1>
         <p className="lead mt-3">Backend'den frontend'e yenilikçi geliştirme.</p>
         <Link to="/projects" className="btn btn-outline-light btn-lg mt-4">

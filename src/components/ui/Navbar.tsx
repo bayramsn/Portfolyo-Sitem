@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
+import { profilePhotoBase64 } from '../../assets/profilePhoto';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -51,21 +52,29 @@ const Navbar = () => {
       }}
     >
       <div className="container py-3 d-flex align-items-center justify-content-between">
-        <Link to="/" className="d-flex align-items-center gap-2 text-decoration-none">
-          <motion.div
+        <Link to="/" className="d-flex align-items-center gap-2 text-decoration-none">          <motion.div
             initial={{ rotate: -10 }}
             animate={{ rotate: 0 }}
             transition={{ duration: 0.5 }}
           >
             <div 
-              className="rounded d-flex align-items-center justify-content-center text-white fw-bold" 
+              className="rounded-circle d-flex align-items-center justify-content-center overflow-hidden" 
               style={{
                 height: '2.5rem', 
-                width: '2.5rem', 
-                background: 'linear-gradient(135deg, var(--gradient-start), var(--gradient-end))'
+                width: '2.5rem',
+                border: '2px solid var(--accent-color)',
+                boxShadow: '0 0 10px rgba(0,0,0,0.1)'
               }}
             >
-              BS
+              <img 
+                src={`data:image/png;base64,${profilePhotoBase64}`} 
+                alt="Bayram Şenbay" 
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  objectFit: 'cover'
+                }}
+              />
             </div>
           </motion.div>
           <motion.span 

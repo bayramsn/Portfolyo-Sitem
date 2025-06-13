@@ -32,24 +32,24 @@ const AboutPage = () => {
 
   // Backend technologies you're skilled in
   const skills = [
-    { name: 'Node.js', level: 90, icon: '⚙️' },
-    { name: 'Express.js', level: 85, icon: '🚀' },
-    { name: 'ASP.NET Core', level: 80, icon: '🔷' },
-    { name: 'MongoDB', level: 75, icon: '🍃' },
-    { name: 'PostgreSQL', level: 85, icon: '🐘' },
-    { name: 'Docker', level: 70, icon: '🐳' },
-    { name: 'Kubernetes', level: 65, icon: '⚓' },
-    { name: 'CI/CD', level: 75, icon: '⚡' },
-    { name: 'Microservices', level: 80, icon: '🔌' },
-    { name: 'API Design', level: 90, icon: '📊' },
+    { name: 'Node.js', level: 80, icon: '⚙️' },
+    { name: 'Express.js', level: 80, icon: '🚀' },
+    { name: 'ASP.NET Core', level: 70, icon: '🔷' },
+    { name: 'MongoDB', level: 70, icon: '🍃' },
+    { name: 'PostgreSQL', level: 80, icon: '🐘' },
+    { name: 'Docker', level: 50, icon: '🐳' },
+    { name: 'Kubernetes', level: 50, icon: '⚓' },
+    { name: 'CI/CD', level: 60, icon: '⚡' },
+    { name: 'Microservices', level: 50, icon: '🔌' },
+    { name: 'API Design', level: 75, icon: '📊' },
   ];
 
   const languages = [
-    { name: 'JavaScript', years: 4, icon: '📜' },
-    { name: 'TypeScript', years: 3, icon: '🔷' },
-    { name: 'C#', years: 4, icon: '🔶' },
-    { name: 'Python', years: 2, icon: '🐍' },
-    { name: 'SQL', years: 5, icon: '📊' },
+    { name: 'JavaScript', years: 2, icon: '📜' },
+    { name: 'TypeScript', years: 2, icon: '🔷' },
+    { name: 'C#', years: 1, icon: '🔶' },
+    { name: 'Python', years: 3, icon: '🐍' },
+    { name: 'SQL', years: 3, icon: '📊' },
     { name: 'Go', years: 1, icon: '🔹' },
   ];
 
