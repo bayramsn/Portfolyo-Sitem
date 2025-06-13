@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
+import { HashRouter, Routes, Route, useLocation } from 'react-router-dom'
 import './App.css'
 import { Canvas } from '@react-three/fiber'
 import { Suspense, useEffect, lazy } from 'react'
@@ -58,10 +58,10 @@ const AppContent = () => {
           <Suspense fallback={<LoadingSpinner />}>
             <Routes>
               <Route path="/" element={<HomePage />} />
-              <Route path="/about" element={<AboutPage />} />
-              <Route path="/projects" element={<ProjectsPage />} />
-              <Route path="/certificates" element={<CertificatesPage />} />
-              <Route path="/contact" element={<ContactPage />} />
+              <Route path="about" element={<AboutPage />} />
+              <Route path="projects" element={<ProjectsPage />} />
+              <Route path="certificates" element={<CertificatesPage />} />
+              <Route path="contact" element={<ContactPage />} />
               {/* Yol eşleşmeme durumunda anasayfaya yönlendir */}
               <Route path="*" element={<HomePage />} />
             </Routes>
@@ -75,9 +75,9 @@ const AppContent = () => {
 function App() {
   return (
     <ThemeProvider>
-      <BrowserRouter>
+      <HashRouter>
         <AppContent />
-      </BrowserRouter>
+      </HashRouter>
     </ThemeProvider>
   );
 }

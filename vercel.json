@@ -3,5 +3,9 @@
     { "source": "/(.*)", "destination": "/index.html" }
   ],
   "cleanUrls": true,
-  "trailingSlash": false
+  "trailingSlash": false,
+  "routes": [
+    { "handle": "filesystem" },
+    { "src": "/[^.]+", "dest": "/", "status": 200 }
+  ]
 }

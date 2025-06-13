@@ -4,18 +4,17 @@
   <meta charset="utf-8">
   <title>Bayram Şenbay - Portfolyo</title>
   <script>
-    // GitHub Pages için SPA yönlendirmesi - Simple Path Rewrite
+    // Vercel için SPA Yönlendirmesi - Hash Router ile çalışacak şekilde
     sessionStorage.redirect = window.location.href;
     
-    // Yalnızca repo adını (Portfolyo-Sitem) korunacak
-    var pathSegmentsToKeep = 1;
+    // Kök dizin için yönlendirme
+    var pathSegmentsToKeep = 0;
     
     var location = window.location;
     window.location.replace(
       location.protocol + "//" + location.hostname + 
       (location.port ? ":" + location.port : "") +
-      location.pathname.split("/").slice(0, 1 + pathSegmentsToKeep).join("/") + 
-      "/#" + location.pathname.slice(1).split("/").slice(pathSegmentsToKeep).join("/") +
+      "/#/" + location.pathname.slice(1) +
       (location.search ? location.search : "") +
       location.hash
     );
