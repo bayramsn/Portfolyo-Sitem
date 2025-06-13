@@ -21,13 +21,13 @@ const Navbar = () => {
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, []);  // Navigation links
+  }, []);  // Navigation links - slash ekleyelim router sorunları için
   const navLinks = [
     { title: 'Ana Sayfa', path: '/' },
-    { title: 'Hakkımda', path: 'about' },
-    { title: 'Projeler', path: 'projects' },
-    { title: 'Sertifikalar', path: 'certificates' },
-    { title: 'İletişim', path: 'contact' }
+    { title: 'Hakkımda', path: '/about' },
+    { title: 'Projeler', path: '/projects' },
+    { title: 'Sertifikalar', path: '/certificates' },
+    { title: 'İletişim', path: '/contact' }
   ];
 
   // Toggle mobile menu

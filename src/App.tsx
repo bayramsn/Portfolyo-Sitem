@@ -29,10 +29,12 @@ const LoadingSpinner = () => (
 const AppContent = () => {
   const { theme, toggleTheme } = useTheme();
   
-  // Log navigation for debugging
+  // Navigate and scroll handling
   const location = useLocation();
   useEffect(() => {
     console.log('Current path:', location.pathname);
+    // Sayfa değiştiğinde sayfayı en üste kaydır
+    window.scrollTo(0, 0);
   }, [location]);
 
   return (
