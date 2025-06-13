@@ -1,0 +1,46 @@
+/* ContactPage.css */
+
+/* Mobil cihazlarda düzgün görünmesi için ek stiller */
+.contact-info-container {
+  overflow-x: hidden !important;
+  max-width: 100%;
+}
+
+.contact-info-item {
+  overflow: hidden;
+  word-break: break-word;
+}
+
+.contact-info-text {
+  max-width: 100%;
+  overflow-wrap: break-word;
+}
+
+.contact-icon {
+  flex-shrink: 0;
+}
+
+/* Mobil cihazlar için ekstra düzenlemeler */
+@media (max-width: 576px) {
+  .contact-info-item {
+    width: 100%;
+    text-align: center;
+  }
+  
+  .contact-info-text {
+    width: 100%;
+    text-align: center;
+  }
+  
+  .social-icons-container {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+}
+
+/* Tablet ve daha büyük ekranlar için düzenlemeler */
+@media (min-width: 576px) {
+  .contact-info-item {
+    align-items: center;
+  }
+}

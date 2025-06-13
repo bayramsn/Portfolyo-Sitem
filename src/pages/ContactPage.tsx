@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import gsap from 'gsap';
+import '../styles/ContactPage.css';
+import '../styles/ContactPageFixes.css';
 
 const ContactPage = () => {  const titleRef = useRef<HTMLHeadingElement>(null);
   const formRef = useRef<HTMLFormElement>(null);
@@ -129,11 +131,10 @@ const ContactPage = () => {  const titleRef = useRef<HTMLHeadingElement>(null);
         </svg>
       )
     }
-  ];
-
-  return (
-    <div className="page-container py-3 py-md-4 py-lg-5">
-      <div className="container mt-3 mt-sm-4 mt-md-5 pt-2 pt-md-3 pt-lg-4 px-3 px-md-4">
+  ];  return (
+    <div className="page-container py-3 py-md-4 py-lg-5 contact-page-container">
+      <div className="container mt-3 mt-sm-4 mt-md-5 pt-2 pt-md-3 pt-lg-4 px-3 px-md-4 contact-page-container"
+        style={{ overflowX: 'hidden', maxWidth: '100%' }}>
         {/* Page Title with animated underline */}        <div className="text-center mb-4 mb-md-5">
           <motion.h1 
             ref={titleRef}
@@ -358,39 +359,41 @@ const ContactPage = () => {  const titleRef = useRef<HTMLHeadingElement>(null);
                 </form>
               </div>
             </div>          </motion.div>
-            {/* Contact Information */}
-          <div className="col-lg-6 order-1 order-lg-2 mb-4 mb-lg-0">            <motion.div 
+            {/* Contact Information */}          <div className="col-lg-6 order-1 order-lg-2 mb-4 mb-lg-0">            <motion.div 
               ref={infoRef}
-              className="card border-0 shadow-sm h-100" 
+              className="card border-0 shadow-sm h-100 contact-card" 
               style={{ 
                 backgroundColor: 'var(--card-bg)', 
                 backdropFilter: 'blur(10px)',
                 maxWidth: '100%',
                 margin: '0 auto',
-                borderRadius: 'calc(0.375rem + 0.1vw)'
+                borderRadius: 'calc(0.375rem + 0.1vw)',
+                overflow: 'hidden' // Taşmaları engeller
               }}
               initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
-            ><div className="card-body p-3 p-sm-4 p-md-4 p-lg-5 h-100">                <h2 className="h3 mb-2 text-center text-sm-start" style={{ 
+            >              <div className="card-body p-3 p-sm-4 p-md-4 p-lg-5 h-100" style={{ overflowX: 'hidden' }}>                <h2 className="h3 mb-2 text-center text-sm-start" style={{ 
                   color: 'var(--accent-color)', 
                   fontWeight: 600,
-                  fontSize: 'calc(1.25rem + 0.3vw)'
+                  fontSize: 'clamp(1.2rem, 1rem + 1vw, 1.5rem)', // Responsive boyut
+                  maxWidth: '100%'
                 }}>İletişim Bilgileri</h2>
                 
                 <p className="text-center text-sm-start mb-4" style={{
                   color: 'var(--text-color)',
                   opacity: 0.8,
-                  fontSize: 'calc(0.9rem + 0.1vw)'
+                  fontSize: 'clamp(0.875rem, 0.8rem + 0.2vw, 1rem)', // Responsive boyut
+                  maxWidth: '100%', // Taşmayı önle
+                  wordBreak: 'break-word' // Uzun kelimelerin taşmasını önle
                 }}>
                   Sorularınız için bana aşağıdaki iletişim kanallarından ulaşabilirsiniz.
-                </p>
-                
-                <motion.div
+                </p>                  <motion.div
                   variants={containerVariants}
                   initial="hidden"
                   animate="visible"
-                  className="d-flex flex-column gap-4"
+                  className="d-flex flex-column gap-3 gap-md-4 contact-info-container"
+                  style={{ maxWidth: '100%', overflowX: 'hidden' }}
                 ><motion.div variants={itemVariants} className="d-flex align-items-start align-items-sm-center flex-column flex-sm-row">
                     <div className="rounded-circle d-flex align-items-center justify-content-center mb-2 mb-sm-0" 
                       style={{ 
@@ -402,13 +405,18 @@ const ContactPage = () => {  const titleRef = useRef<HTMLHeadingElement>(null);
                       <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="white" viewBox="0 0 24 24">
                         <path d="M6.62,10.79C8.06,13.62 10.38,15.94 13.21,17.38L15.41,15.18C15.69,14.9 16.08,14.82 16.43,14.93C17.55,15.3 18.75,15.5 20,15.5A1,1 0 0,1 21,16.5V20A1,1 0 0,1 20,21A17,17 0 0,1 3,4A1,1 0 0,1 4,3H7.5A1,1 0 0,1 8.5,4C8.5,5.25 8.7,6.45 9.07,7.57C9.18,7.92 9.1,8.31 8.82,8.59L6.62,10.79Z" />
                       </svg>
-                    </div>
-                    <div className="ms-sm-3 w-100">
-                      <h3 className="h5 mb-0 text-center text-sm-start" style={{ fontWeight: 600, fontSize: 'calc(1rem + 0.15vw)' }}>Telefon</h3>
+                    </div>                    <div className="ms-sm-3 w-100" style={{ overflow: 'hidden', wordBreak: 'break-word' }}>
+                      <h3 className="h5 mb-0 text-center text-sm-start" style={{ 
+                        fontWeight: 600, 
+                        fontSize: 'clamp(0.95rem, 0.85rem + 0.2vw, 1.15rem)',
+                        maxWidth: '100%'
+                      }}>Telefon</h3>
                       <p className="mb-0 text-center text-sm-start" style={{ 
                         color: 'var(--text-color)', 
                         opacity: 0.8,
-                        fontSize: 'calc(0.875rem + 0.1vw)'
+                        fontSize: 'clamp(0.85rem, 0.8rem + 0.1vw, 1rem)',
+                        maxWidth: '100%',
+                        overflowWrap: 'break-word'
                       }}>+90 (552) 756 8268</p>
                     </div>
                   </motion.div>
@@ -423,13 +431,18 @@ const ContactPage = () => {  const titleRef = useRef<HTMLHeadingElement>(null);
                       <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="white" viewBox="0 0 24 24">
                         <path d="M20,8L12,13L4,8V6L12,11L20,6M20,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V6C22,4.89 21.1,4 20,4Z" />
                       </svg>
-                    </div><div className="ms-sm-3 w-100">
-                      <h3 className="h5 mb-0 text-center text-sm-start" style={{ fontWeight: 600 }}>E-posta</h3>
-                      <p className="mb-0 text-center text-sm-start text-break contact-info-email" style={{ 
+                    </div>                     <div className="ms-sm-3 w-100 contact-info-text">
+                      <h3 className="h5 mb-0 text-center text-sm-start" style={{ 
+                        fontWeight: 600,
+                        fontSize: 'clamp(0.95rem, 0.85rem + 0.2vw, 1.15rem)'
+                      }}>E-posta</h3>
+                      <p className="mb-0 text-center text-sm-start text-break contact-email" style={{ 
                         color: 'var(--text-color)', 
                         opacity: 0.8,
                         wordBreak: 'break-word',
-                        fontSize: 'calc(0.875rem + 0.1vw)'
+                        overflowWrap: 'break-word',
+                        maxWidth: '100%',
+                        fontSize: 'clamp(0.85rem, 0.8rem + 0.1vw, 1rem)'
                       }}>bayramsenbay4068@gmail.com</p>
                     </div>
                   </motion.div>                  <motion.div variants={itemVariants} className="d-flex align-items-start align-items-sm-center flex-column flex-sm-row mb-4">
@@ -443,12 +456,16 @@ const ContactPage = () => {  const titleRef = useRef<HTMLHeadingElement>(null);
                       <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="white" viewBox="0 0 24 24">
                         <path d="M12,2C8.13,2 5,5.13 5,9c0,5.25 7,13 7,13s7,-7.75 7,-13c0,-3.87 -3.13,-7 -7,-7zM12,11.5c-1.38,0 -2.5,-1.12 -2.5,-2.5s1.12,-2.5 2.5,-2.5 2.5,1.12 2.5,2.5 -1.12,2.5 -2.5,2.5z" />
                       </svg>
-                    </div>
-                    <div className="ms-sm-3 w-100">
-                      <h3 className="h5 mb-0 text-center text-sm-start" style={{ fontWeight: 600, fontSize: 'calc(1rem + 0.15vw)' }}>Adres</h3>
-                      <p className="mb-0 text-center text-sm-start" style={{ 
+                    </div>                    <div className="ms-sm-3 w-100 contact-info-text">
+                      <h3 className="h5 mb-0 text-center text-sm-start" style={{ 
+                        fontWeight: 600, 
+                        fontSize: 'clamp(0.95rem, 0.85rem + 0.2vw, 1.15rem)'
+                      }}>Adres</h3>
+                      <p className="mb-0 text-center text-sm-start contact-address" style={{ 
                         color: 'var(--text-color)', 
                         opacity: 0.8,
+                        wordBreak: 'break-word',
+                        overflowWrap: 'break-word',
                         fontSize: 'calc(0.875rem + 0.1vw)'
                       }}>Türkiye</p>
                     </div>

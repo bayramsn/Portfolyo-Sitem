@@ -1,4 +1,4 @@
-import { HashRouter, Routes, Route, useLocation } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
 import './App.css'
 import { Canvas } from '@react-three/fiber'
 import { Suspense, useEffect, lazy } from 'react'
@@ -71,9 +71,9 @@ const AppContent = () => {
 function App() {
   return (
     <ThemeProvider>
-      <HashRouter>
+      <BrowserRouter>
         <AppContent />
-      </HashRouter>
+      </BrowserRouter>
     </ThemeProvider>
   );
 }

@@ -157,3 +157,28 @@ main {
   position: relative;
   z-index: 1;
 }
+/* Responsive düzeltmeler */
+@media (max-width: 576px) {
+  .page-container {
+    overflow-x: hidden;
+    max-width: 100vw;
+  }
+  
+  .container {
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+    overflow-x: hidden;
+  }
+  
+  /* Ýletiþim sayfasý için düzeltmeler */
+  .contact-info-text {
+    width: 100%;
+    word-break: break-word;
+  }
+  
+  .contact-icon {
+    max-width: 50px;
+    max-height: 50px;
+    margin-bottom: 10px;
+  }
+}

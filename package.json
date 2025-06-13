@@ -3,14 +3,12 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://bayramsn.github.io/Portfolyo-Sitem",
+  "homepage": "/",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist --dotfiles"
+    "preview": "vite preview"
   },
   "dependencies": {
     "@react-three/drei": "^10.0.7",

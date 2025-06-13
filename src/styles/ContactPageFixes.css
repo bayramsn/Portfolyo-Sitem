@@ -1,0 +1,97 @@
+/* ContactPageFixes.css */
+
+/* Mobil cihazlar için özel düzeltmeler */
+.contact-page-container {
+  overflow-x: hidden;
+  max-width: 100%;
+  width: 100%;
+}
+
+html, body {
+  overflow-x: hidden;
+  max-width: 100%;
+  position: relative;
+}
+
+.contact-card {
+  overflow: hidden !important;
+  word-break: break-word;
+  max-width: 100%;
+}
+
+.contact-info-item {
+  width: 100%;
+  overflow: hidden;
+}
+
+.contact-info-icon {
+  max-width: 55px !important;
+  max-height: 55px !important;
+  flex-shrink: 0;
+}
+
+.contact-info-text {
+  overflow-wrap: break-word !important;
+  word-break: break-word !important;
+  max-width: 100% !important; 
+}
+
+.contact-email {
+  font-size: 14px !important;
+  max-width: 100%;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.contact-address {
+  font-size: 14px !important;
+  max-width: 100%;
+}
+
+/* Mobil için özel düzenlemeler */
+@media (max-width: 576px) {
+  .contact-info-container {
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+    max-width: 100% !important;
+    overflow: hidden !important;
+  }
+  
+  .contact-email, .contact-address {
+    font-size: 13px !important;
+    line-height: 1.4;
+    max-width: 100% !important;
+    overflow-wrap: break-word !important;
+    word-break: break-word !important;
+  }
+  
+  .card-body {
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+    overflow: hidden !important;
+  }
+  
+  .social-icons {
+    justify-content: center !important;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+    .social-icon {
+    width: 40px !important;
+    height: 40px !important;
+  }
+  
+  /* Ana kapsayıcı için ekstra önlemler */
+  .row {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    max-width: 100% !important;
+  }
+  
+  /* Yatay taşmaları engelle */
+  .container-fluid, .container {
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+    overflow-x: hidden !important;
+  }
+}

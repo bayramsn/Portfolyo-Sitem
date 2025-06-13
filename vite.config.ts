@@ -9,7 +9,7 @@ const __dirname = dirname(__filename)
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: '/Portfolyo-Sitem/', // GitHub Pages repository name path
+  base: '/', // Vercel için kök dizini kullanıyoruz
   publicDir: 'public',
   resolve: {
     alias: {
