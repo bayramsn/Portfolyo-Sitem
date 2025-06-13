@@ -20,6 +20,15 @@
   scroll-behavior: smooth;
 }
 
+/* Profil fotoğrafının indirilemez olmasını sağla */
+.no-download-image {
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  pointer-events: none;
+}
+
 body {
   margin: 0;
   min-width: 320px;

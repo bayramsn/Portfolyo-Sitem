@@ -1,0 +1,24 @@
+/* Profil resmi güvenliği için ek CSS stillleri */
+
+/* Görüntünün yapısını bozmadan indirmeyi engelleyen CSS */
+.img-secure {
+  position: relative;
+}
+
+.img-secure::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none; /* Tıklama olaylarını engelleme */
+  z-index: 10;
+}
+
+/* Görüntüyü yazdırma engelleme */
+@media print {
+  .no-download-image {
+    display: none !important;
+  }
+}

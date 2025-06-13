@@ -1,9 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { FaLaptopCode, FaServer, FaDatabase } from 'react-icons/fa';
-import { profilePhotoBase64 } from '../assets/profilePhoto';
+import { useBlobProfileImage } from '../assets/profileBlobUtils';
+import '../styles/secure-image.css';
 
 const HomePage: React.FC = () => {
+  const blobProfileImageUrl = useBlobProfileImage();
   return (    <div className="container py-5">
       {/* Hero Section */}      <section
         className="hero text-center text-light py-5 mb-5"
@@ -13,15 +15,16 @@ const HomePage: React.FC = () => {
           <div 
             className="rounded-circle overflow-hidden border-3 border-light shadow-lg"
             style={{ width: '150px', height: '150px' }}
-          >
-            <img 
-              src={`data:image/png;base64,${profilePhotoBase64}`} 
+          >            <img 
+              src={blobProfileImageUrl || ''} 
               alt="Bayram Şenbay" 
               style={{
                 width: '100%',
                 height: '100%',
                 objectFit: 'cover'
-              }}
+              }}              onContextMenu={(e) => e.preventDefault()} /* Sağ tıkla indirmeyi engelle */
+              draggable="false" /* Sürükle-bırak yoluyla indirmeyi engelle */
+              className="no-download-image" /* İndirmeyi engelleyen sınıf */
             />
           </div>
         </div>

@@ -1,12 +1,14 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { profilePhotoBase64 } from '../../assets/profilePhoto';
+import { useBlobProfileImage } from '../../assets/profileBlobUtils';
+import '../../styles/secure-image.css';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
+  const blobProfileImageUrl = useBlobProfileImage();
 
   // Handle scroll effect for navbar
   useEffect(() => {
@@ -65,15 +67,17 @@ const Navbar = () => {
                 border: '2px solid var(--accent-color)',
                 boxShadow: '0 0 10px rgba(0,0,0,0.1)'
               }}
-            >
-              <img 
-                src={`data:image/png;base64,${profilePhotoBase64}`} 
+            >              <img 
+                src={blobProfileImageUrl || ''} 
                 alt="Bayram Şenbay" 
                 style={{
                   width: '100%',
                   height: '100%',
                   objectFit: 'cover'
                 }}
+                onContextMenu={(e) => e.preventDefault()} /* Sağ tıkla indirmeyi engelle */
+                draggable="false" /* Sürükle-bırak yoluyla indirmeyi engelle */
+                className="no-download-image" /* İndirmeyi engelleyen sınıf */
               />
             </div>
           </motion.div>
