@@ -44,22 +44,39 @@ const ContactPage = () => {  const titleRef = useRef<HTMLHeadingElement>(null);
     const { name, value } = e.target;
     setFormState(prev => ({ ...prev, [name]: value }));
   };
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate form submission with delay
+    // Formspree kullanarak e-posta gönderimi
     try {
-      await new Promise(resolve => setTimeout(resolve, 1500));
-      setSubmitStatus('success');
-      setFormState({
-        name: '',
-        email: '',
-        subject: '',
-        message: ''
+      // "YOUR_FORM_ID" kısmını Formspree'den alacağınız form ID ile değiştirin
+      const response = await fetch("https://formspree.io/f/xleqkplr", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: formState.name,
+          email: formState.email,
+          subject: formState.subject,
+          message: formState.message,
+        }),
       });
+      
+      if (response.ok) {
+        setSubmitStatus('success');
+        setFormState({
+          name: '',
+          email: '',
+          subject: '',
+          message: ''
+        });
+      } else {
+        throw new Error('Form submission failed');
+      }
     } catch (error) {
+      console.error('Error submitting form:', error);
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
@@ -198,8 +215,7 @@ const ContactPage = () => {  const titleRef = useRef<HTMLHeadingElement>(null);
                   fontSize: 'calc(1.3rem + 0.3vw)',
                   fontWeight: '600'
                 }}>Mesaj Gönderin</h3>
-                
-                <form ref={formRef} onSubmit={handleSubmit}>
+                  <form ref={formRef} onSubmit={handleSubmit} action="https://formspree.io/f/xleqkplr" method="POST">
                   <div className="row g-2 g-md-3">
                     <div className="col-md-6">
                       <div className="form-floating mb-3">
