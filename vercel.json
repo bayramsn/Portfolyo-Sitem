@@ -2,6 +2,14 @@
   "rewrites": [
     { "source": "/(.*)", "destination": "/index.html" }
   ],
+  "routes": [
+    { "src": "/about", "dest": "/index.html" },
+    { "src": "/projects", "dest": "/index.html" },
+    { "src": "/certificates", "dest": "/index.html" },
+    { "src": "/contact", "dest": "/index.html" },
+    { "handle": "filesystem" },
+    { "src": "/(.*)", "dest": "/index.html" }
+  ],
   "cleanUrls": true,
   "trailingSlash": false
 }

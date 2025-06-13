@@ -51,7 +51,7 @@ const ContactPage = () => {  const titleRef = useRef<HTMLHeadingElement>(null);
     // Formspree kullanarak e-posta gönderimi
     try {
       // "YOUR_FORM_ID" kısmını Formspree'den alacağınız form ID ile değiştirin
-      const response = await fetch("https://formspree.io/f/xleqkplr", {
+      const response = await fetch("https://formspree.io/f/xqabqolb", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

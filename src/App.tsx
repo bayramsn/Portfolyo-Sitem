@@ -56,10 +56,12 @@ const AppContent = () => {
           <Suspense fallback={<LoadingSpinner />}>
             <Routes>
               <Route path="/" element={<HomePage />} />
-              <Route path="about" element={<AboutPage />} />
-              <Route path="projects" element={<ProjectsPage />} />
-              <Route path="certificates" element={<CertificatesPage />} />
-              <Route path="contact" element={<ContactPage />} />
+              <Route path="/about" element={<AboutPage />} />
+              <Route path="/projects" element={<ProjectsPage />} />
+              <Route path="/certificates" element={<CertificatesPage />} />
+              <Route path="/contact" element={<ContactPage />} />
+              {/* Yol eşleşmeme durumunda anasayfaya yönlendir */}
+              <Route path="*" element={<HomePage />} />
             </Routes>
           </Suspense>
         </main>
